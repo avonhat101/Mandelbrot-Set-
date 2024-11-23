@@ -1,3 +1,10 @@
+# CISP 400 Git VScode files
+.vs*
+*.vcx*
+*.sln
+x64
+x86
+
 # Prerequisites
 *.d
 
