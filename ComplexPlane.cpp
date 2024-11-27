@@ -66,6 +66,7 @@ void ComplexPlane::loadText(Text& text)
 	ss << "Center: (" << m_plane_center.x << ", " << m_plane_center.y << ")" << endl;
 	ss << "Cursor: (" << m_mouseLocation.x << ", " << m_mouseLocation.y << ")" << endl;
 	ss << "Left-click to Zoom in" << endl << "Right-click to Zoom out" << endl;
+	ss << "Press R to reset" << endl;
 	text.setString(ss.str());
 
 }
