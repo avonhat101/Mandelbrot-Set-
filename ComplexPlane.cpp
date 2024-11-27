@@ -79,17 +79,22 @@ void ComplexPlane::updateRender()
 }
 int ComplexPlane::countIterations(Vector2f coord)
 {
-	Vector2f z = coord;
-	
-	int i = 0;
-	while (abs(z) < 2.0 && i < 64)
-	{
-		z = z * z + coord;
-		//cout << "z_" << i << "= " << z << endl;
-		//cout << "|z| = " << abs(coord) << endl;
-		i++;
-	}
-	return i;
+    Vector2f z = coord;
+    int i = 0;
+
+    
+    while (z.x * z.x + z.y * z.y < 4.0 && i < 64) 
+    {
+        // z = z * z + coord; 
+        float x = z.x * z.x - z.y * z.y + coord.x;
+        float y = 2.0 * z.x * z.y + coord.y;
+        z.x = x;
+        z.y = y;
+
+        i++;
+    }
+
+    return i;
 }
 void ComplexPlane::iterationsToRGB(size_t count, Uint8& r, Uint8& g, Uint8& b)
 {
