@@ -79,10 +79,11 @@ void ComplexPlane::updateRender()
 int ComplexPlane::countIterations(Vector2f coord)
 {
 	complex<double> z = coord;
+	complex<double> c = coord;
 	int i = 0;
 	while (abs(z) < 2.0 && i < 64)
 	{
-		z = z * z + coord;
+		z = z * z + c;
 		//cout << "z_" << i << "= " << z << endl;
 		//cout << "|z| = " << abs(c) << endl;
 		i++;
