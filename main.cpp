@@ -33,23 +33,23 @@ int main()
 			
 			
 			if (event.type == sf::Event::MouseButtonPressed)
-            {
-                if (event.mouseButton.button == sf::Mouse::Left)
-                {
-                    Cplane.zoomIn();
-                    Cplane.setCenter(Vector2i(event.mouseButton.x, event.mouseButton.y));
-                }
-                if (event.mouseButton.button == sf::Mouse::Right)
-                {
-                    Cplane.zoomOut();
-                    Cplane.setCenter(Vector2i(event.mouseButton.x, event.mouseButton.y));
-                }
-            }
-            if (event.type == sf::Event::MouseMoved)
-            {
-                Cplane.setMouseLocation(Vector2i(event.mouseMove.x, event.mouseMove.y));
-            }
-        }
+            		{
+                		if (event.mouseButton.button == sf::Mouse::Left)
+                		{
+                   		 Cplane.zoomIn();
+                    		Cplane.setCenter(Vector2i(event.mouseButton.x, event.mouseButton.y));
+                		}
+		                if (event.mouseButton.button == sf::Mouse::Right)
+		                {
+		                    Cplane.zoomOut();
+		                    Cplane.setCenter(Vector2i(event.mouseButton.x, event.mouseButton.y));
+		                }
+		            }
+		            if (event.type == sf::Event::MouseMoved)
+		            {
+		                Cplane.setMouseLocation(Vector2i(event.mouseMove.x, event.mouseMove.y));
+		            }
+		        }
 
 
 		if (Keyboard::isKeyPressed(Keyboard::Escape))
