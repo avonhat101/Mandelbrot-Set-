@@ -16,8 +16,8 @@ ComplexPlane::ComplexPlane(int pixelWidth, int pixelHeight)
 }
 void ComplexPlane::reset()
 {
-	m_pixel_size.x = pixelWidth;
-	m_pixel_size.y = pixelHeight;
+	//m_pixel_size.x = pixelWidth;
+	//m_pixel_size.y = pixelHeight;
 	m_aspectRatio = (float)pixelHeight / (float)pixelWidth;
 	m_plane_center.x = 0;
 	m_plane_center.y = 0;
