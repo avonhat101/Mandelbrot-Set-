@@ -49,12 +49,13 @@ int main()
 		        	{
 		        		Cplane.setMouseLocation(Vector2i(event.mouseMove.x, event.mouseMove.y));
 		        	}
+				if (Keyboard::isKeyPressed(Keyboard::R))
+				{
+					Cplane.reset();
+				}
 			}
 
-		if (Keyboard::isKeyPressed(Keyboard::R))
-		{
-			Cplane.reset();
-		}
+		
 		if (Keyboard::isKeyPressed(Keyboard::Escape))
 		{
 			window.close();
