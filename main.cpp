@@ -51,7 +51,10 @@ int main()
 		        	}
 			}
 
-
+		if (Keyboard::isKeyPressed(Keyboard::R))
+		{
+			Cplane.reset();
+		}
 		if (Keyboard::isKeyPressed(Keyboard::Escape))
 		{
 			window.close();
