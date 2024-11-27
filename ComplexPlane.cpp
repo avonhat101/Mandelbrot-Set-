@@ -19,16 +19,16 @@ void ComplexPlane::draw(RenderTarget& target, RenderStates states) const
 void ComplexPlane::zoomIn()
 {
 	m_zoomCount++;
-	float x = BASE_WIDTH * (pow(BASE_ZOOM, m_ZoomCount));
-	float y = BASE_HEIGHT * m_aspectRatio * (pow(BASE_ZOOM, m_ZoomCount));
+	float x = BASE_WIDTH * (pow(BASE_ZOOM, m_zoomCount));
+	float y = BASE_HEIGHT * m_aspectRatio * (pow(BASE_ZOOM, m_zoomCount));
 	m_plane_size{ x,y };
 	m_state = State::CALCULATING;
 }
 void ComplexPlane::zoomOut()
 {
 	m_zoomCount--;
-	float x = BASE_WIDTH * (pow(BASE_ZOOM, m_ZoomCount));
-	float y = BASE_HEIGHT * m_aspectRatio * (pow(BASE_ZOOM, m_ZoomCount));
+	float x = BASE_WIDTH * (pow(BASE_ZOOM, m_zoomCount));
+	float y = BASE_HEIGHT * m_aspectRatio * (pow(BASE_ZOOM, m_zoomCount));
 	m_plane_size{ x,y };
 	m_state = State::CALCULATING;
 }
