@@ -85,7 +85,7 @@ int ComplexPlane::countIterations(Vector2f coord)
     
     while (z.x * z.x + z.y * z.y < 4.0 && i < 64) 
     {
-        // z = z * z + coord; 
+        
         float x = z.x * z.x - z.y * z.y + coord.x;
         float y = 2.0 * z.x * z.y + coord.y;
         z.x = x;
@@ -133,6 +133,6 @@ Vector2f ComplexPlane::mapPixelToCoords(Vector2i mousePixel)
 {
 	Vector2f result;
 	result.x = ((((float)mousePixel.x) / (m_pixel_size.x)) * m_plane_size.x + (m_plane_center.x - m_plane_size.x / 2.0));
-	result.x = ((((float)mousePixel.y) / (m_pixel_size.y)) * m_plane_size.y + (m_plane_center.y - m_plane_size.y / 2.0));
+	result.y = ((((float)mousePixel.y) / (m_pixel_size.y)) * m_plane_size.y + (m_plane_center.y - m_plane_size.y / 2.0));
 	return result;
 }
