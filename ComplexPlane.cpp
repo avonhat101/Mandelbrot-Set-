@@ -16,17 +16,17 @@ ComplexPlane::ComplexPlane(int pixelWidth, int pixelHeight)
 }
 void ComplexPlane::reset()
 {
-	//m_pixel_size.x = pixelWidth;
-	//m_pixel_size.y = pixelHeight;
-	//m_aspectRatio = (float)pixelHeight / (float)pixelWidth;
+	int pixelWidth = 1920;
+	int pixelHeight = 1080;
+	m_aspectRatio = (float)pixelHeight / (float)pixelWidth;
 	m_plane_center.x = 0;
 	m_plane_center.y = 0;
 	m_plane_size.x = BASE_WIDTH;
 	m_plane_size.y = BASE_HEIGHT * m_aspectRatio;
 	m_zoomCount = 0;
 	m_state = State::CALCULATING;
-	//m_vArray.setPrimitiveType(Points);
-	//m_vArray.resize(pixelWidth * pixelHeight);
+	m_vArray.setPrimitiveType(Points);
+	m_vArray.resize(pixelWidth * pixelHeight);
 }
 void ComplexPlane::draw(RenderTarget& target, RenderStates states) const
 {
