@@ -119,13 +119,13 @@ void ComplexPlane::iterationsToRGB(size_t count, Uint8& r, Uint8& g, Uint8& b)
 		g = 0;
 		b = 0;
 	}
-	else if (count > 50)
+	else if (count > 35)
 	{
 		r = 50;
 		g = 100;
 		b = 220;
 	}
-	else if (count > 35)
+	else if (count > 20)
 	{
 		r = 224;
 		g = 84;
