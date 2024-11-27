@@ -145,9 +145,9 @@ void ComplexPlane::iterationsToRGB(size_t count, Uint8& r, Uint8& g, Uint8& b)
 	}
 	else if (count >= 0)
 	{
-		r = 85;
-		g = 182;
-		b = 204;
+		r = 240;
+		g = 20;
+		b = 20;
 	}
 }
 Vector2f ComplexPlane::mapPixelToCoords(Vector2i mousePixel)
