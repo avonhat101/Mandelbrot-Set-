@@ -14,7 +14,7 @@ int main()
 	font.loadFromFile("ARIAL.TTF");
 	text.setFont(font);
 	text.setCharacterSize(24);
-	text.setFillColor(Color::White);
+	text.setFillColor(Color::Black);
 
 	while (window.isOpen())
 	{
@@ -36,20 +36,20 @@ int main()
             		{
                 		if (event.mouseButton.button == sf::Mouse::Left)
                 		{
-                   		 Cplane.zoomIn();
-                    		Cplane.setCenter(Vector2i(event.mouseButton.x, event.mouseButton.y));
+                   			Cplane.zoomIn();
+                    			Cplane.setCenter(Vector2i(event.mouseButton.x, event.mouseButton.y));
                 		}
 		                if (event.mouseButton.button == sf::Mouse::Right)
 		                {
-		                    Cplane.zoomOut();
-		                    Cplane.setCenter(Vector2i(event.mouseButton.x, event.mouseButton.y));
+		                	Cplane.zoomOut();
+		                	Cplane.setCenter(Vector2i(event.mouseButton.x, event.mouseButton.y));
 		                }
-		            }
-		            if (event.type == sf::Event::MouseMoved)
-		            {
-		                Cplane.setMouseLocation(Vector2i(event.mouseMove.x, event.mouseMove.y));
-		            }
-		        }
+		        	}
+		        	if (event.type == sf::Event::MouseMoved)
+		        	{
+		        		Cplane.setMouseLocation(Vector2i(event.mouseMove.x, event.mouseMove.y));
+		        	}
+			}
 
 
 		if (Keyboard::isKeyPressed(Keyboard::Escape))
