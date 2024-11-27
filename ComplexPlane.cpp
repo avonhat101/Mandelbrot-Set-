@@ -32,7 +32,8 @@ void ComplexPlane::zoomOut()
 	m_zoomCount--;
 	float x = BASE_WIDTH * (pow(BASE_ZOOM, m_zoomCount));
 	float y = BASE_HEIGHT * m_aspectRatio * (pow(BASE_ZOOM, m_zoomCount));
-	m_plane_size{ x,y };
+	m_plane_size.x = x;
+	m_plane_size.y = y;
 	m_state = State::CALCULATING;
 }
 void ComplexPlane::setCenter(Vector2i mousePixel)
@@ -50,7 +51,7 @@ void ComplexPlane::loadText(Text& text)
 	ss << "Mandelbrot Set" << endl;
 	ss << "Center: (" << m_plane_center.x << ", " << m_plane_center.y << ")" << endl;
 	ss << "Cursor: (" << m_mouseLocation.x << ", " << m_mouseLocation.y << ")" << endl;
-	ss << "Left-click to Zoom in" << endl << "Right-click to Zoom out"
+	ss << "Left-click to Zoom in" << endl << "Right-click to Zoom out" << endl;
 	text.setString(ss.str());
 
 }
@@ -62,15 +63,15 @@ void ComplexPlane::updateRender()
 		{
 			for (int j = 0; j < m_pixel_size.x; j++)
 			{
-				m_vArray[j + i * pixelWidth].position = { (float)j,(float)i };
+				m_vArray[j + i * m_pixel_size.x].position = { (float)j,(float)i };
 				Vector2i location = { j,i };
 				Vector2f Coord1 = ComplexPlane::mapPixelToCoords(location);
-				int inter = ComplexPlane::countIterations(Coord1);
+				int iter = ComplexPlane::countIterations(Coord1);
 				Uint8 r;
 				Uint8 g;
 				Uint8 b;
 				ComplexPlane::iterationsToRGB(iter, r, g, b);
-				vArray[j + i * pixelWidth].color = { r,g,b };
+				m_vArray[j + i * m_pixel_size.x].color = { r,g,b };
 			}
 		}
 		m_state = State::DISPLAYING;
@@ -78,14 +79,14 @@ void ComplexPlane::updateRender()
 }
 int ComplexPlane::countIterations(Vector2f coord)
 {
-	complex<double> z = coord;
-	complex<double> c = coord;
+	Vector2f z = coord;
+	
 	int i = 0;
 	while (abs(z) < 2.0 && i < 64)
 	{
-		z = z * z + c;
+		z = z * z + coord;
 		//cout << "z_" << i << "= " << z << endl;
-		//cout << "|z| = " << abs(c) << endl;
+		//cout << "|z| = " << abs(coord) << endl;
 		i++;
 	}
 	return i;
